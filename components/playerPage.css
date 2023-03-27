@@ -1,0 +1,15 @@
+.player{
+    position: relative;
+}
+.background-player{
+    position: absolute;
+    bottom: 0;
+}
+.background-player img{
+    width: 100vw;
+    position: absolute;
+    bottom: -10px;
+}
+.background-player img:nth-child(2){
+    left: 5px;
+}

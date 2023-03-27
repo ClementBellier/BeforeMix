@@ -1,0 +1,26 @@
+.play-button{
+    width: 100px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background-color: white;
+    position: relative;
+    cursor: pointer;
+}
+.play-button img{
+    position: absolute;
+}
+.play-button .play-icon{
+    width: 32%;
+    left: 50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+}
+.ellipse-play_button{
+    left: 5px;
+    top: 2px;
+    transition: 1s ease-in-out;
+    transform-origin: 45px 48px;
+}
+.play-button:hover .ellipse-play_button{
+    rotate: 360deg;
+}

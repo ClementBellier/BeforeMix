@@ -1,6 +1,10 @@
+import { useState } from "react";
 import "./loadingPage.css";
+import PlayButton from "./playButton";
 
 const LoadingPage = () => {
+  const [isLoading, setLoading] = useState(false)
+
   return (
     <main className="colored-page">
       <div className="decoration">
@@ -21,7 +25,7 @@ const LoadingPage = () => {
             enregistrés côte à côte)
           </p>
         </div>
-        <div className="loading">Chargement</div>
+        {isLoading ? (<div className="loading">Chargement</div>) : (<PlayButton />)}
       </div>
     </main>
   );
