@@ -1,0 +1,24 @@
+@import url(https://fonts.bunny.net/css?family=rubik:300,400,500,600,700,800,900);
+
+*, *::before, *::after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --primary-color: #FFD500;
+    --secondary-light-color: #8100D6;
+    --secondary-color: #5C0099;
+    --secondary-dark-color: #510087;
+    --secondary-darker-color: #2E004D;
+    --tertiary-color: #DED1A7;
+    --tertiary-light-color: #FEF4D1;
+    --quaternary-color: #99B4BC;
+}
+body{
+    font-family: 'Rubik';
+    color: var(--secondary-darker-color);
+    overflow: hidden;
+    font-size: 18px;
+}

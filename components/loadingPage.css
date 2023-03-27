@@ -1,0 +1,49 @@
+.colored-page{
+    background-color: var(--primary-color);
+}
+.decoration{
+    position: relative;
+}
+.decoration__blob{
+    position: absolute;
+    width: 80vw;
+    height: 50vw;
+    left: -5vw;
+    top: -16vw;
+    object-fit: cover;
+    rotate: 8deg;
+}
+.decoration__disk{
+    position: absolute;
+    width: 50vw;
+    right: -19vw;
+    top: -13vw;
+}
+.loadingPage-text{
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    padding: 1rem;
+    gap: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+@media (max-width: 767px){
+    .loadingPage-text{flex-direction: column;}
+}
+.loading{
+    font-size: 2rem;
+    color: var(--secondary-color);
+    align-self: flex-end;
+}
+.loadingPage-text h1{
+    text-transform: uppercase;
+    font-size: calc(2rem + 5vw);
+}
+.loadingPage-text h2{
+    font-size: calc(1rem + 2vw);
+}
+.loadingPage-text p{
+    max-width: 60ch;
+}
