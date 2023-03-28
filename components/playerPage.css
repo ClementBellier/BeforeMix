@@ -1,15 +1,49 @@
-.player{
+.player-page{
     position: relative;
 }
 .background-player{
     position: absolute;
-    bottom: 0;
+    height: 30vh;
+    top: 70vh;
+    width: 100%;
 }
 .background-player img{
-    width: 100vw;
+    width: max(1400px,100vw);
     position: absolute;
-    bottom: -10px;
+    bottom: 0;
+    left: -2px;
 }
 .background-player img:nth-child(2){
-    left: 5px;
+    left: unset;
+    right: -5px;
+    bottom:-15px;
+}
+.song{
+    display: flex;
+    padding: 2rem;
+    gap: 1rem;    
+}
+.song__infos{
+    width: 35%;
+}
+.song__infos img{
+    width: 200px;
+}
+.song__infos h1{
+    font-size: calc(2rem + 1vw);
+    font-weight: 900;
+}
+.song__infos h2{
+    font-weight: 200;
+    color: var(--secondary-color);
+}
+.song__trackslist{
+    width: 100%;
+    height: 78vh;
+    overflow-y: scroll;
+    padding-bottom: 200px;
+    padding-right: .4rem;
+    scrollbar-color: var(--primary-color) transparent;
+    scrollbar-width: thin;
+    scrollbar-gutter: stable;
 }

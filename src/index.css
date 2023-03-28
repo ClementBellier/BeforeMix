@@ -5,7 +5,7 @@
     margin: 0;
     box-sizing: border-box;
 }
-
+a{color: inherit}
 :root{
     --primary-color: #FFB300;
     --secondary-light-color: #8100D6;
@@ -15,6 +15,13 @@
     --tertiary-color: #DED1A7;
     --tertiary-light-color: #FEF4D1;
     --quaternary-color: #99B4BC;
+}
+button{
+    border: unset;
+    background: unset;
+    font-size: unset;
+    color: unset;
+    text-align: unset;
 }
 body{
     font-family: 'Rubik';
