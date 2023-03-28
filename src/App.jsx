@@ -11,7 +11,7 @@ const loadMusicArrayBuffer = async () => {
 
 
 function App() {
-  const [isLoading, setLoading] = useState(false)
+  const [isLoading, setLoading] = useState(true)
 
   return isLoading ? (<LoadingPage />) : (<PlayerPage />)
 }

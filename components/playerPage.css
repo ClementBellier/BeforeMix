@@ -42,7 +42,7 @@
     height: 78vh;
     overflow-y: scroll;
     padding-bottom: 200px;
-    padding-right: .4rem;
+    padding-right: .5rem;
     scrollbar-color: var(--primary-color) transparent;
     scrollbar-width: thin;
     scrollbar-gutter: stable;

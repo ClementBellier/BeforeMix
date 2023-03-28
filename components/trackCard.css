@@ -2,13 +2,14 @@
     display: flex;
     background-color: var(--secondary-light-color);
     width: 100%;
-    margin-bottom: 1rem;
+    margin-bottom: .5rem;
     color: var(--tertiary-light-color);
     border-radius: 10px;
+    height: 160px;
 }
 .track-card canvas{
     width: 50%;
-    aspect-ratio: 5;
+    max-height: 160px;
 }
 .track-buttons{
     width: 50%;
@@ -20,7 +21,7 @@
     padding: 1rem;
 }
 .track-buttons p{
-    font-size: 1.5rem;
+    font-size: calc(1rem + 1vw);
 }
 .track-buttons button,
 .track-buttons div{

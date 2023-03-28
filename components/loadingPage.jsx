@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Disk from "./disk";
 import "./loadingPage.css";
 import PlayButton from "./playButton";
 
@@ -7,9 +8,9 @@ const LoadingPage = () => {
 
   return (
     <main className="colored-page">
-      <div className="decoration">
+      <div className="decoration" aria-hidden="true">
         <img src="/decor-blob.svg" alt="" className="decoration__blob" />
-        <img src="/disk.svg" alt="" className="decoration__disk" />
+        <Disk width="50vw" position={{top:"-16vw",right:"-20vw"}} rotate={true} outline={true} />
       </div>
       <div className="loadingPage-text">
         <div>
