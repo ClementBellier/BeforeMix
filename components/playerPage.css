@@ -26,7 +26,11 @@
 .song__infos{
     width: 35%;
 }
-.song__infos img{
+.song__infos-disk{
+    position: relative;
+    isolation: isolate;
+}
+.song__infos-disk img{
     width: 200px;
 }
 .song__infos h1{

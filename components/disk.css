@@ -36,29 +36,30 @@
 .disk-groove:nth-of-type(1){
     width: 88%;
     border-color: var(--tertiary-light-color) transparent;
-    rotate: 11deg;
+    rotate: 101deg;
 }
 .disk-groove:nth-of-type(2){
     width: 69%;
     border-color: var(--tertiary-light-color) transparent;
-    rotate: 9deg;
+    rotate: 99deg;
 }
 .disk-groove:nth-of-type(3){
     width: 75%;
     border-color: var(--tertiary-light-color) transparent;
-    rotate: -8deg;
+    rotate: 82deg;
 }
 .disk-groove:nth-of-type(4){
     width: 51%;
     border-color: var(--tertiary-light-color) transparent;
-    rotate: 16deg;
+    rotate: 106deg;
 }
 .disk-groove:nth-of-type(5){
     width: 46%;
     border-color: var(--tertiary-light-color) transparent;
-    rotate: -1deg;
+    rotate: 89deg;
 }
 .disk-groove:nth-of-type(6){
     width: 93%;
     border-color: var(--tertiary-light-color) transparent;
+    rotate: 90deg;
 }
