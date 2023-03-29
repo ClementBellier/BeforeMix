@@ -55,3 +55,14 @@
 .track-buttons button.active::before{
     background-color: var(--primary-color);
 }
+.track-volume{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.track-volume img{
+    width: 26px;
+}
+.track-volume input{
+    width: 100%;
+}

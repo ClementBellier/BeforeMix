@@ -29,3 +29,34 @@ body{
     overflow: hidden;
     font-size: 18px;
 }
+input[type="range"]{
+    -webkit-appearance: none;
+    height: 10px;
+    border-radius: 5px;
+    background: var(--quaternary-color);
+    background-image: linear-gradient(var(--secondary-color), var(--secondary-color));
+    background-size: 90% 100%;
+    background-repeat: no-repeat;
+}
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 35px;
+    width: 35px;
+    background: url(/disk.svg) center center no-repeat;
+    cursor: ew-resize;
+}
+input[type="range"]::-moz-range-thumb {
+    -webkit-appearance: none;
+    border: none;
+    height: 35px;
+    width: 35px;
+    background: url(/disk.svg) center center no-repeat;
+    cursor: ew-resize;
+}
+input[type=range]::-webkit-slider-runnable-track,
+input[type=range]::-moz-range-track {
+    -webkit-appearance: none;
+    box-shadow: none;
+    border: none;
+    background: transparent;
+}

@@ -10,7 +10,7 @@ const PlayerPage = () => {
           <div className="song__infos-disk">
             <Disk
               width="180px"
-              position={{ left: "30%", zIndex: "-1"}}
+              position={{ left: "20%", zIndex: "-1"}}
               rotate={true}
             />
             <img src="/lala_dp_front-1024x925.jpg" />
