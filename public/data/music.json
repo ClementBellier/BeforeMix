@@ -1,0 +1,23 @@
+{
+  "music": [
+    {
+      "title": "Summertime",
+      "groupName": "Bols & Knecht",
+      "cover": "lala_dp_front-1024x925.jpg",
+      "links": {
+        "site": "bolzundknecht.de/",
+        "youtube": "https://www.youtube.com/@Tobijazzknecht"
+      },
+      "tracks": [
+        {
+          "name": "Saxophone",
+          "audio": "/data/BolzAndKnecht_Summertime/BolzAndKnecht_Summertime_Saxophone.mp3"
+        },
+        {
+          "name": "Guitare",
+          "audio": "/data/BolzAndKnecht_Summertime/BolzAndKnecht_Summertime_Guitare.mp3"
+        }
+      ]
+    }
+  ]
+}

@@ -3,14 +3,17 @@ import Disk from "./disk";
 import "./loadingPage.css";
 import PlayButton from "./playButton";
 
-const LoadingPage = () => {
-  const [isLoading, setLoading] = useState(false)
-
+const LoadingPage = ({ isLoading, setPassToPlayerPage }) => {
   return (
     <main className="colored-page">
       <div className="decoration" aria-hidden="true">
         <img src="/decor-blob.svg" alt="" className="decoration__blob" />
-        <Disk width="50vw" position={{top:"-16vw",right:"-20vw"}} rotate={true} outline={true} />
+        <Disk
+          width="50vw"
+          position={{ top: "-16vw", right: "-20vw" }}
+          rotate={true}
+          outline={true}
+        />
       </div>
       <div className="loadingPage-text">
         <div>
@@ -26,7 +29,11 @@ const LoadingPage = () => {
             enregistrés côte à côte)
           </p>
         </div>
-        {isLoading ? (<div className="loading">Chargement</div>) : (<PlayButton />)}
+        {isLoading ? (
+          <div className="loading">Chargement</div>
+        ) : (
+          <PlayButton onClickCallback={setPassToPlayerPage} />
+        )}
       </div>
     </main>
   );

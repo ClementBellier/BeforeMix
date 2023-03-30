@@ -1,7 +1,8 @@
 import { useState } from "react";
+import SongWaveForm from "./SongWaveForm";
 import "./trackCard.css";
 
-const TrackCard = () => {
+const TrackCard = ({track, trackArrayBuffer}) => {
   const [volume, setVolume] = useState("0.9")
   const handleInputChange = (e) => {
     const val = e.target.value;
@@ -10,9 +11,9 @@ const TrackCard = () => {
   };
   return (
     <div className="track-card">
-      <canvas></canvas>
+      {/* <SongWaveForm songArrayBuffer={trackArrayBuffer} /> */}
       <div className="track-buttons">
-        <p>Saxophone</p>
+        <p>{track.name}</p>
         <button>Solo</button>
         <div className="track-volume">
           <img src="/speaker.svg" alt="" />

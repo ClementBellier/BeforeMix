@@ -3,7 +3,8 @@ import "./playerPage.css";
 import TrackCard from "./trackCard";
 import PlayButton from "./playButton";
 
-const PlayerPage = () => {
+const PlayerPage = ({ song, setSong, tracksArrayBuffer }) => {
+
   return (
     <main className="player-page">
       <div className="song">
@@ -14,22 +15,26 @@ const PlayerPage = () => {
               position={{ left: "20%", zIndex: "-1" }}
               rotate={true}
             />
-            <img src="/lala_dp_front-1024x925.jpg" />
+            <img src={song.cover} alt="Cover d'un album du groupe" />
           </div>
-          <h1>Summertime</h1>
-          <h2>Bols & Knecht</h2>
+          <h1>{song.title}</h1>
+          <h2>{song.groupName}</h2>
           <div>
-            <a href="">Site</a>
-            <a href="">Spotify</a>
+            {song.links.site && <a href={song.links.site}>Site</a>}
+            {song.links.spotify && <a href={song.links.spotify}>Spotify</a>}
+            {song.links.youtube && <a href={song.links.youtube}>Youtube</a>}
           </div>
         </div>
         <div className="song__trackslist--container">
           <div className="song__trackslist--shadow"></div>
           <div className="song__trackslist">
-            <TrackCard />
-            <TrackCard />
-            <TrackCard />
-            <TrackCard />
+            {song.tracks.map((track, index) => (
+              <TrackCard
+                track={track}
+                trackArrayBuffer={tracksArrayBuffer[index]}
+                key={track.name}
+              />
+            ))}
           </div>
         </div>
       </div>
