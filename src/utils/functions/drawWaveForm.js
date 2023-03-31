@@ -9,7 +9,6 @@ export const drawWaveForm = (
     const canvasHeight = Math.floor(canvas.offsetHeight);
     canvas.width = canvasWidth;
     canvas.height = canvasHeight;
-    
     if (!context) return;
 
     const lineWidth = 1;

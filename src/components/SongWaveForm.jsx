@@ -1,14 +1,23 @@
 import { useEffect, useRef } from "react";
 import { drawWaveForm, drawMiddleLine } from "../utils/functions/drawWaveForm";
 
-const SongWaveForm = ({songArrayBuffer}) => {
-    const ref = useRef(null)
+const SongWaveForm = ({songArrayBuffer, currentTime}) => {
+    const backgroundCanvasref = useRef(null)
+    const currentimeCanvasref = useRef(null)
+
     useEffect(()=>{
-        const canvas = ref.current
+        const canvas = backgroundCanvasref.current
         const canvasContext = canvas.getContext('2d')
-        drawMiddleLine(canvas,canvasContext,"var(--tertiary-color)")
-        drawWaveForm(songArrayBuffer,canvas,canvasContext,"var(--tertiary-color)","100")
-    },[ref.current])
-    return <canvas ref={ref} />
+        drawMiddleLine(canvas,canvasContext,"#DED1A7")
+        drawWaveForm(songArrayBuffer,canvas,canvasContext,"#FEF4D1","100")
+    },[backgroundCanvasref.current])
+
+    useEffect(()=>{
+        const canvas = currentimeCanvasref.current
+        const canvasContext = canvas.getContext('2d')
+        drawWaveForm(songArrayBuffer,canvas,canvasContext,"#FFB300",currentTime)
+    },[currentTime, currentimeCanvasref.current])
+
+    return <div className="canvas-container"><canvas ref={backgroundCanvasref} /><canvas ref={currentimeCanvasref} /></div>
 }
 export default SongWaveForm

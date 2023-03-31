@@ -2,8 +2,42 @@ import Disk from "./disk";
 import "./playerPage.css";
 import TrackCard from "./trackCard";
 import PlayButton from "./playButton";
+import { useEffect, useState } from "react";
+import ProgressBar from "./progressBar";
 
-const PlayerPage = ({ song, setSong, tracksArrayBuffer }) => {
+const PlayerPage = ({ song, setSong, audios, tracksArrayBuffer }) => {
+  const [isPlaying, setPlaying] = useState(false);
+  const [currentTime, setCurrentTime] = useState("0");
+  const [pourcentTime, setPourcentTime] = useState("0");
+  const [loopActivate, setLoopActivate] = useState(false)
+  const audioRef = audios[0];
+  const duration = audioRef.duration;
+
+  useEffect(() => {
+    let interval = null;
+    if (isPlaying) {
+      audios.map(audio=>audio.play())
+      interval = setInterval(() => {
+        const audioCurrentTime = audioRef.currentTime;
+        const pourcentTime = (audioCurrentTime * 100) / duration;
+        setCurrentTime(audioCurrentTime);
+        setPourcentTime(pourcentTime);
+      }, 10);
+    }
+    else{
+      audios.map(audio=>audio.pause())
+    }
+    return () => clearInterval(interval);
+  }, [isPlaying]);
+  
+  useEffect(() => {
+    if(!loopActivate)setPlaying(false);
+  }, [audioRef.ended]);
+  
+  const handleLoop = () =>{
+    audios.map(audio=>audio.loop=!audio.loop)
+    setLoopActivate(activate=>!activate)
+  }
 
   return (
     <main className="player-page">
@@ -13,7 +47,7 @@ const PlayerPage = ({ song, setSong, tracksArrayBuffer }) => {
             <Disk
               width="180px"
               position={{ left: "20%", zIndex: "-1" }}
-              rotate={true}
+              rotate={isPlaying}
             />
             <img src={song.cover} alt="Cover d'un album du groupe" />
           </div>
@@ -31,7 +65,10 @@ const PlayerPage = ({ song, setSong, tracksArrayBuffer }) => {
             {song.tracks.map((track, index) => (
               <TrackCard
                 track={track}
+                audio={audios[index]}
                 trackArrayBuffer={tracksArrayBuffer[index]}
+                isPlaying={isPlaying}
+                currentTime={pourcentTime}
                 key={track.name}
               />
             ))}
@@ -39,13 +76,15 @@ const PlayerPage = ({ song, setSong, tracksArrayBuffer }) => {
         </div>
       </div>
       <div className="player-controls">
-        <PlayButton />
-        <div className="loop">
-          <img src="/loop-icon.svg" />
+        <PlayButton onClickCallback={setPlaying} />
+        <div className={loopActivate? "loop loop-activate":"loop"} onClick={handleLoop}>
+          <svg><use href="#loop-icon" /></svg>
         </div>
-        <div className="current-time">01:30</div>
-        <input type="range" min="0" max="100" value="90" />
-        <div className="song-time">03:32</div>
+        <ProgressBar
+          currentTime={currentTime}
+          pourcentTime={pourcentTime}
+          duration={duration}
+        />
       </div>
       <div className="other-songs">
         <p>D'autres titres</p>

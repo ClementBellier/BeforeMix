@@ -99,16 +99,19 @@
     .player-controls{margin-top: -10px;padding-left: 100px;}
 }
 .loop{
+    --loop-color: var(--tertiary-light-color);
     width: 45px;
     height: 45px;
     rotate: 0deg;
     transition: rotate .5s ease-in-out;
     cursor: pointer;
-    display: grid;
-    place-content: center;
 }
-.loop img{
+.loop-activate{
+    --loop-color: var(--secondary-color)
+}
+.loop svg{
     width: 45px;
+    height: 45px;
 }
 .loop:hover{
     rotate: 1turn;
