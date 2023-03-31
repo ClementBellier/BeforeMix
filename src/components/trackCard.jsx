@@ -2,11 +2,8 @@ import { useState } from "react";
 import SongWaveForm from "./SongWaveForm";
 import "./trackCard.css";
 
-const TrackCard = ({track, audio, trackArrayBuffer, isPlaying, currentTime}) => {
+const TrackCard = ({track, audio, trackArrayBuffer, currentTime}) => {
   const [volume, setVolume] = useState("0.9")
-
-  // if(isPlaying) audio.play()
-  // if(!isPlaying) audio.pause()
 
   const handleInputChange = (e) => {
     const volumeValue = e.target.value;

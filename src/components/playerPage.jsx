@@ -9,35 +9,46 @@ const PlayerPage = ({ song, setSong, audios, tracksArrayBuffer }) => {
   const [isPlaying, setPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState("0");
   const [pourcentTime, setPourcentTime] = useState("0");
-  const [loopActivate, setLoopActivate] = useState(false)
+  const [chosenTime, setChosenTime] = useState();
+  const [loopActivate, setLoopActivate] = useState(false);
   const audioRef = audios[0];
   const duration = audioRef.duration;
 
   useEffect(() => {
     let interval = null;
     if (isPlaying) {
-      audios.map(audio=>audio.play())
+      audios.map((audio) => audio.play());
       interval = setInterval(() => {
         const audioCurrentTime = audioRef.currentTime;
         const pourcentTime = (audioCurrentTime * 100) / duration;
         setCurrentTime(audioCurrentTime);
         setPourcentTime(pourcentTime);
       }, 10);
-    }
-    else{
-      audios.map(audio=>audio.pause())
+    } else {
+      audios.map((audio) => audio.pause());
     }
     return () => clearInterval(interval);
   }, [isPlaying]);
-  
+
   useEffect(() => {
-    if(!loopActivate)setPlaying(false);
+    if (!loopActivate) setPlaying(false);
   }, [audioRef.ended]);
-  
-  const handleLoop = () =>{
-    audios.map(audio=>audio.loop=!audio.loop)
-    setLoopActivate(activate=>!activate)
-  }
+
+  useEffect(() => {
+    if (isPlaying) {
+      audios.map((audio) => audio.pause());
+      audios.map((audio) => (audio.currentTime = chosenTime));
+      audios.map((audio) => audio.play());
+    }
+    else{
+      audios.map((audio) => (audio.currentTime = chosenTime));
+    }
+  }, [chosenTime]);
+
+  const handleLoop = () => {
+    audios.map((audio) => (audio.loop = !audio.loop));
+    setLoopActivate((activate) => !activate);
+  };
 
   return (
     <main className="player-page">
@@ -67,7 +78,6 @@ const PlayerPage = ({ song, setSong, audios, tracksArrayBuffer }) => {
                 track={track}
                 audio={audios[index]}
                 trackArrayBuffer={tracksArrayBuffer[index]}
-                isPlaying={isPlaying}
                 currentTime={pourcentTime}
                 key={track.name}
               />
@@ -77,12 +87,19 @@ const PlayerPage = ({ song, setSong, audios, tracksArrayBuffer }) => {
       </div>
       <div className="player-controls">
         <PlayButton onClickCallback={setPlaying} />
-        <div className={loopActivate? "loop loop-activate":"loop"} onClick={handleLoop}>
-          <svg><use href="#loop-icon" /></svg>
+        <div
+          className={loopActivate ? "loop loop-activate" : "loop"}
+          onClick={handleLoop}
+        >
+          <svg>
+            <use href="#loop-icon" />
+          </svg>
         </div>
         <ProgressBar
           currentTime={currentTime}
           pourcentTime={pourcentTime}
+          setCurrentTime={setCurrentTime}
+          setChosenTime={setChosenTime}
           duration={duration}
         />
       </div>
