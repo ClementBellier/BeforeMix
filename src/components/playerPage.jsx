@@ -9,7 +9,7 @@ const PlayerPage = ({ song, setSong, audios, tracksArrayBuffer }) => {
   const [isPlaying, setPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState("0");
   const [pourcentTime, setPourcentTime] = useState("0");
-  const [chosenTime, setChosenTime] = useState();
+  const [chosenTime, setChosenTime] = useState(null);
   const [loopActivate, setLoopActivate] = useState(false);
   const audioRef = audios[0];
   const duration = audioRef.duration;
@@ -24,7 +24,8 @@ const PlayerPage = ({ song, setSong, audios, tracksArrayBuffer }) => {
         setCurrentTime(audioCurrentTime);
         setPourcentTime(pourcentTime);
       }, 10);
-    } else {
+    }
+    if (!isPlaying && currentTime) {
       audios.map((audio) => audio.pause());
     }
     return () => clearInterval(interval);
@@ -39,8 +40,7 @@ const PlayerPage = ({ song, setSong, audios, tracksArrayBuffer }) => {
       audios.map((audio) => audio.pause());
       audios.map((audio) => (audio.currentTime = chosenTime));
       audios.map((audio) => audio.play());
-    }
-    else{
+    } else {
       audios.map((audio) => (audio.currentTime = chosenTime));
     }
   }, [chosenTime]);
@@ -79,6 +79,8 @@ const PlayerPage = ({ song, setSong, audios, tracksArrayBuffer }) => {
                 audio={audios[index]}
                 trackArrayBuffer={tracksArrayBuffer[index]}
                 currentTime={pourcentTime}
+                ù
+                index={index}
                 key={track.name}
               />
             ))}
@@ -99,6 +101,7 @@ const PlayerPage = ({ song, setSong, audios, tracksArrayBuffer }) => {
           currentTime={currentTime}
           pourcentTime={pourcentTime}
           setCurrentTime={setCurrentTime}
+          chosenTime={chosenTime}
           setChosenTime={setChosenTime}
           duration={duration}
         />

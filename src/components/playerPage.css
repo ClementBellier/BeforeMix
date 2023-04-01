@@ -119,6 +119,11 @@
 .player-controls input{
     width: 25vw;
 }
+.display-time{
+    width: 80px;
+    text-align: center;
+    font-variant-numeric: tabular-nums;
+}
 .other-songs{
     z-index: 1;
     width: 100vw;

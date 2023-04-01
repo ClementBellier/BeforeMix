@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { drawWaveForm, drawMiddleLine } from "../utils/functions/drawWaveForm";
 
-const SongWaveForm = ({songArrayBuffer, currentTime}) => {
+const SongWaveForm = ({songArrayBuffer, currentTime, canvasContainerRef}) => {
     const backgroundCanvasref = useRef(null)
     const currentimeCanvasref = useRef(null)
 
@@ -18,6 +18,6 @@ const SongWaveForm = ({songArrayBuffer, currentTime}) => {
         drawWaveForm(songArrayBuffer,canvas,canvasContext,"#FFB300",currentTime)
     },[currentTime, currentimeCanvasref.current])
 
-    return <div className="canvas-container"><canvas ref={backgroundCanvasref} /><canvas ref={currentimeCanvasref} /></div>
+    return <div className="canvas-container" ref={canvasContainerRef}><canvas ref={backgroundCanvasref} /><canvas ref={currentimeCanvasref} /></div>
 }
 export default SongWaveForm
