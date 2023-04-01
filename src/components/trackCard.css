@@ -1,11 +1,17 @@
 .track-card{
     display: flex;
-    background-color: var(--secondary-light-color);
+    background-color: var(--secondary-color);
     width: 100%;
     margin-bottom: .5rem;
     color: var(--tertiary-light-color);
     border-radius: 10px;
     height: 160px;
+}
+.track-card:nth-of-type(3n+2){
+    background-color: var(--secondary-dark-color);
+}
+.track-card:nth-of-type(3n+3){
+    background-color: var(--secondary-darker-color);
 }
 .canvas-container{
     position: relative;

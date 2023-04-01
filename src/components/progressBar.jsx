@@ -19,7 +19,7 @@ const ProgressBar = ({ currentTime, pourcentTime, setCurrentTime, chosenTime, se
   }
 
   return (
-    <>
+    <div className="progress-bar">
       <div className="display-time">{beautifyTime(currentTime)}</div>
       <input
         type="range"
@@ -31,7 +31,7 @@ const ProgressBar = ({ currentTime, pourcentTime, setCurrentTime, chosenTime, se
         onChange={handleChange}
       />
       <div className="display-time">{beautifyTime(duration)}</div>
-    </>
+    </div>
   );
 };
 export default ProgressBar;

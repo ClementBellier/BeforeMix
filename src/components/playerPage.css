@@ -107,7 +107,7 @@
     width: 45px;
     height: 45px;
     rotate: 0deg;
-    transition: rotate .5s ease-in-out;
+    transition: rotate 1s ease-in-out;
     cursor: pointer;
 }
 .loop-activate{
@@ -122,6 +122,15 @@
 }
 .player-controls input{
     width: 25vw;
+}
+.progress-bar{
+    display: flex;
+    align-items: center;
+    background-color: var(--tertiary-light-color);
+    border-radius: 6px;
+    padding: .7rem;
+    gap: .7rem;
+    height: 55px;
 }
 .display-time{
     width: 80px;
@@ -146,4 +155,10 @@
     height: 100%;
     aspect-ratio: 1;
     object-fit: cover;
+    transition: transform 1s ease-in-out;
+    transform-origin: bottom right;
+    cursor: pointer;
+}
+.other-songs img:hover{
+    transform: scale(1.3);
 }

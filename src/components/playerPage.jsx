@@ -111,11 +111,7 @@ const PlayerPage = ({ song, setSong, tracks }) => {
       <div className="other-songs">
         <p>Les titres</p>
         <img src="lala_dp_front-1024x925.jpg" />
-        <img src="lala_dp_front-1024x925.jpg" />
-        <img src="lala_dp_front-1024x925.jpg" />
-        <img src="lala_dp_front-1024x925.jpg" />
-        <img src="lala_dp_front-1024x925.jpg" />
-        <img src="lala_dp_front-1024x925.jpg" />
+        <img src="cover-ownwaytoboogie.jpg" />
       </div>
       <div className="background-player" aria-hidden="true">
         <img src="/arriereplan-lecteur.svg" alt="" />

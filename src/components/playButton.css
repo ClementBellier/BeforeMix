@@ -2,7 +2,7 @@
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    background-color: white;
+    background-color: var(--tertiary-light-color);
     position: relative;
     cursor: pointer;
 }

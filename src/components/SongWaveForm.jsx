@@ -15,7 +15,7 @@ const SongWaveForm = ({songArrayBuffer, currentTime, canvasContainerRef}) => {
     useEffect(()=>{
         const canvas = currentimeCanvasref.current
         const canvasContext = canvas.getContext('2d')
-        drawWaveForm(songArrayBuffer,canvas,canvasContext,"#FFB300",currentTime)
+        drawWaveForm(songArrayBuffer,canvas,canvasContext,"#5C0099",currentTime)
     },[currentTime, currentimeCanvasref.current])
 
     return <div className="canvas-container" ref={canvasContainerRef}><canvas ref={backgroundCanvasref} /><canvas ref={currentimeCanvasref} /></div>
