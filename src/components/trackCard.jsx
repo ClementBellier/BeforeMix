@@ -2,15 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import SongWaveForm from "./SongWaveForm";
 import "./trackCard.css";
 
-const TrackCard = ({
-  track,
-  audio,
-  trackArrayBuffer,
-  currentTime,
-  isSolo,
-  setSolo,
-  index,
-}) => {
+const TrackCard = ({ track, currentTime, isSolo, setSolo, index }) => {
   const [volume, setVolume] = useState("1");
   const [isMuted, setMuted] = useState(false);
   const [isTrackSolo, setTrackSolo] = useState(false);
@@ -19,17 +11,17 @@ const TrackCard = ({
   const canvasContainerRef = useRef(null);
 
   const muteTrack = () => {
-    audio.muted = true;
+    track.audio.muted = true;
     setMuted(true);
     setVolume(0);
     volumeInputRef.current.style.backgroundSize = "0% 100%";
     canvasContainerRef.current.style.filter = "grayscale(1)";
   };
   const unmuteTrack = () => {
-    audio.muted = false;
+    track.audio.muted = false;
     setMuted(false);
-    setVolume(audio.volume);
-    volumeInputRef.current.style.backgroundSize = audio.volume * 100 + "% 100%";
+    setVolume(track.audio.volume);
+    volumeInputRef.current.style.backgroundSize = track.audio.volume * 100 + "% 100%";
     canvasContainerRef.current.style.filter = "grayscale(0)";
   };
 
@@ -48,12 +40,12 @@ const TrackCard = ({
   const handleInputChange = (e) => {
     const volumeValue = e.target.value;
     e.target.style.backgroundSize = volumeValue * 100 + "% 100%";
-    audio.volume = volumeValue;
+    track.audio.volume = volumeValue;
     setVolume(volumeValue);
   };
   const handleMute = (e) => {
     e.preventDefault();
-    if (audio.muted) {
+    if (track.audio.muted) {
       unmuteTrack();
     } else {
       muteTrack();
@@ -76,7 +68,7 @@ const TrackCard = ({
   return (
     <div className="track-card">
       <SongWaveForm
-        songArrayBuffer={trackArrayBuffer}
+        songArrayBuffer={track.arrayBuffer}
         currentTime={currentTime}
         canvasContainerRef={canvasContainerRef}
       />

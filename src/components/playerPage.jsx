@@ -5,16 +5,17 @@ import PlayButton from "./playButton";
 import { useEffect, useState } from "react";
 import ProgressBar from "./progressBar";
 
-const PlayerPage = ({ song, setSong, audios, tracksArrayBuffer }) => {
+const PlayerPage = ({ song, setSong, tracks }) => {
   const [isPlaying, setPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState("0");
   const [pourcentTime, setPourcentTime] = useState("0");
   const [chosenTime, setChosenTime] = useState(null);
   const [loopActivate, setLoopActivate] = useState(false);
   const [isSolo, setSolo] = useState(null);
+  const audios = tracks.reduce((acc,value)=>[...acc, value.audio],[])
   const audioRef = audios[0];
   const duration = audioRef.duration;
-  
+
   useEffect(() => {
     let interval = null;
     if (isPlaying) {
@@ -66,7 +67,7 @@ const PlayerPage = ({ song, setSong, audios, tracksArrayBuffer }) => {
           </div>
           <h1>{song.title}</h1>
           <h2>{song.groupName}</h2>
-          <div>
+          <div className="song__infos-links">
             {song.links.site && <a href={song.links.site}>Site</a>}
             {song.links.spotify && <a href={song.links.spotify}>Spotify</a>}
             {song.links.youtube && <a href={song.links.youtube}>Youtube</a>}
@@ -75,11 +76,9 @@ const PlayerPage = ({ song, setSong, audios, tracksArrayBuffer }) => {
         <div className="song__trackslist--container">
           <div className="song__trackslist--shadow"></div>
           <div className="song__trackslist">
-            {song.tracks.map((track, index) => (
+            {tracks.map((track, index) => (
               <TrackCard
                 track={track}
-                audio={audios[index]}
-                trackArrayBuffer={tracksArrayBuffer[index]}
                 currentTime={pourcentTime}
                 isSolo={isSolo}
                 setSolo={setSolo}
@@ -110,7 +109,7 @@ const PlayerPage = ({ song, setSong, audios, tracksArrayBuffer }) => {
         />
       </div>
       <div className="other-songs">
-        <p>D'autres titres</p>
+        <p>Les titres</p>
         <img src="lala_dp_front-1024x925.jpg" />
         <img src="lala_dp_front-1024x925.jpg" />
         <img src="lala_dp_front-1024x925.jpg" />
