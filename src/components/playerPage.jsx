@@ -11,9 +11,10 @@ const PlayerPage = ({ song, setSong, audios, tracksArrayBuffer }) => {
   const [pourcentTime, setPourcentTime] = useState("0");
   const [chosenTime, setChosenTime] = useState(null);
   const [loopActivate, setLoopActivate] = useState(false);
+  const [isSolo, setSolo] = useState(null);
   const audioRef = audios[0];
   const duration = audioRef.duration;
-
+  
   useEffect(() => {
     let interval = null;
     if (isPlaying) {
@@ -32,6 +33,7 @@ const PlayerPage = ({ song, setSong, audios, tracksArrayBuffer }) => {
   }, [isPlaying]);
 
   useEffect(() => {
+    console.log("ended")
     if (!loopActivate) setPlaying(false);
   }, [audioRef.ended]);
 
@@ -79,8 +81,9 @@ const PlayerPage = ({ song, setSong, audios, tracksArrayBuffer }) => {
                 audio={audios[index]}
                 trackArrayBuffer={tracksArrayBuffer[index]}
                 currentTime={pourcentTime}
-                ù
-                index={index}
+                isSolo={isSolo}
+                setSolo={setSolo}
+                index={index + 1} //Eviter un index 0 pour pouvoir rentrer dans le useEffect
                 key={track.name}
               />
             ))}

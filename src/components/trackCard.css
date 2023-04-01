@@ -56,13 +56,19 @@
     top: calc(50% - 4px);
     left: calc(.7rem + 2px);
 }
-.track-buttons button:hover,
 .track-buttons button.active{
     background-color: var(--quaternary-color);
 }
-.track-buttons button:hover::before,
 .track-buttons button.active::before{
     background-color: var(--primary-color);
+}
+.track-buttons button:hover{
+    background-color: var(--secondary-color);
+}
+.track-buttons button:disabled,
+.track-buttons button:disabled:hover{
+    background-color: var(--tertiary-light-color);
+    filter: grayscale(1)
 }
 .track-volume{
     display: flex;
