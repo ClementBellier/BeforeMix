@@ -132,8 +132,8 @@ const PlayerPage = ({ song, setSong, tracks, allSongs }) => {
         ))}
       </div>
       <div className="background-player" aria-hidden="true">
-        <img src="/arriereplan-lecteur.svg" alt="" />
-        <img src="/arriereplan-titres.svg" alt="" />
+        <img src="arriereplan-lecteur.svg" alt="" />
+        <img src="arriereplan-titres.svg" alt="" />
       </div>
     </main>
   );

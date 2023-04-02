@@ -11,11 +11,11 @@
       "tracks": [
         {
           "name": "Saxophone",
-          "audio": "/data/BolzAndKnecht_Summertime/BolzAndKnecht_Summertime_Saxophone.mp3"
+          "audio": "data/BolzAndKnecht_Summertime/BolzAndKnecht_Summertime_Saxophone.mp3"
         },
         {
           "name": "Guitare",
-          "audio": "/data/BolzAndKnecht_Summertime/BolzAndKnecht_Summertime_Guitare.mp3"
+          "audio": "data/BolzAndKnecht_Summertime/BolzAndKnecht_Summertime_Guitare.mp3"
         }
       ]
     },
@@ -31,23 +31,23 @@
       "tracks": [
         {
           "name": "Batterie",
-          "audio": "/data/BalazsDanielBoogieWoogieTrio_OwnWayToBoogie/Batterie.mp3"
+          "audio": "data/BalazsDanielBoogieWoogieTrio_OwnWayToBoogie/Batterie.mp3"
         },
         {
           "name": "Basse",
-          "audio": "/data/BalazsDanielBoogieWoogieTrio_OwnWayToBoogie/Basse.mp3"
+          "audio": "data/BalazsDanielBoogieWoogieTrio_OwnWayToBoogie/Basse.mp3"
         },
         {
           "name": "Piano",
-          "audio": "/data/BalazsDanielBoogieWoogieTrio_OwnWayToBoogie/Piano.mp3"
+          "audio": "data/BalazsDanielBoogieWoogieTrio_OwnWayToBoogie/Piano.mp3"
         },
         {
           "name": "Chant",
-          "audio": "/data/BalazsDanielBoogieWoogieTrio_OwnWayToBoogie/Chant.mp3"
+          "audio": "data/BalazsDanielBoogieWoogieTrio_OwnWayToBoogie/Chant.mp3"
         },
         {
           "name": "Choeurs",
-          "audio": "/data/BalazsDanielBoogieWoogieTrio_OwnWayToBoogie/Choeurs.mp3"
+          "audio": "data/BalazsDanielBoogieWoogieTrio_OwnWayToBoogie/Choeurs.mp3"
         }
       ]
     }

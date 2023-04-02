@@ -7,7 +7,7 @@ const LoadingPage = ({ songCover, isLoading, setPassToPlayerPage }) => {
   return (
     <main className="colored-page">
       <div className="decoration" aria-hidden="true">
-        <img src="/decor-blob.svg" alt="" className="decoration__blob" />
+        <img src="decor-blob.svg" alt="" className="decoration__blob" />
         <Disk
           width="50vw"
           position={{ top: "-16vw", right: "-20vw" }}
