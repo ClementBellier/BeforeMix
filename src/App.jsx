@@ -10,7 +10,7 @@ const loadMusicArrayBuffer = async (url) => {
 };
 
 function App() {
-  const audioContext = new window.AudioContext 
+  const audioContext = new window.AudioContext();
   const [isLoading, setLoading] = useState(true);
   const [passToPlayerPage, setPassToPlayerPage] = useState(false);
   const songs = music.music;
@@ -18,20 +18,27 @@ function App() {
   const [tracks, setTracks] = useState([]);
 
   useEffect(() => {
+    setTracks([]);
     setLoading(true);
+    setPassToPlayerPage(false);
     songToPlay.tracks.forEach(async (track) => {
-      const arrayBuffer = await loadMusicArrayBuffer(track.audio)
-      const decodeArrayBuffer = await audioContext.decodeAudioData(arrayBuffer)
-      const audio = new Audio(track.audio)
-      setTracks((previousTracks)=>[...previousTracks, {name: track.name, arrayBuffer: decodeArrayBuffer, audio}])
+      const arrayBuffer = await loadMusicArrayBuffer(track.audio);
+      const decodeArrayBuffer = await audioContext.decodeAudioData(arrayBuffer);
+      const audio = new Audio(track.audio);
+      setTracks((previousTracks) => [
+        ...previousTracks,
+        { name: track.name, arrayBuffer: decodeArrayBuffer, audio },
+      ]);
     });
     setLoading(false);
-  }, []);
+  }, [songToPlay]);
+
   return passToPlayerPage ? (
     <PlayerPage
       song={songToPlay}
       setSong={setSongToPlay}
       tracks={tracks}
+      allSongs={songs}
     />
   ) : (
     <LoadingPage

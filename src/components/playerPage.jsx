@@ -4,17 +4,24 @@ import TrackCard from "./trackCard";
 import PlayButton from "./playButton";
 import { useEffect, useState } from "react";
 import ProgressBar from "./progressBar";
+import music from "../../public/data/music.json";
 
-const PlayerPage = ({ song, setSong, tracks }) => {
+const PlayerPage = ({ song, setSong, tracks, allSongs }) => {
   const [isPlaying, setPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState("0");
   const [pourcentTime, setPourcentTime] = useState("0");
   const [chosenTime, setChosenTime] = useState(null);
   const [loopActivate, setLoopActivate] = useState(false);
   const [isSolo, setSolo] = useState(null);
-  const audios = tracks.reduce((acc,value)=>[...acc, value.audio],[])
+  const audios = tracks.reduce((acc, value) => [...acc, value.audio], []);
   const audioRef = audios[0];
   const duration = audioRef.duration;
+
+  useEffect(() => {
+    if (!loopActivate) {
+      setPlaying(false);
+    }
+  }, [audioRef.ended]);
 
   useEffect(() => {
     let interval = null;
@@ -34,11 +41,6 @@ const PlayerPage = ({ song, setSong, tracks }) => {
   }, [isPlaying]);
 
   useEffect(() => {
-    console.log("ended")
-    if (!loopActivate) setPlaying(false);
-  }, [audioRef.ended]);
-
-  useEffect(() => {
     if (isPlaying) {
       audios.map((audio) => audio.pause());
       audios.map((audio) => (audio.currentTime = chosenTime));
@@ -52,6 +54,12 @@ const PlayerPage = ({ song, setSong, tracks }) => {
     audios.map((audio) => (audio.loop = !audio.loop));
     setLoopActivate((activate) => !activate);
   };
+
+  const handleChangeSong = (index) =>{
+    audios.map((audio) => audio.pause());
+    audios.map((audio) => audio.remove());
+    setSong(music.music[index])
+  }
 
   return (
     <main className="player-page">
@@ -110,8 +118,18 @@ const PlayerPage = ({ song, setSong, tracks }) => {
       </div>
       <div className="other-songs">
         <p>Les titres</p>
-        <img src="lala_dp_front-1024x925.jpg" />
-        <img src="cover-ownwaytoboogie.jpg" />
+        {allSongs.map((song, index) => (
+          <div
+            className="cover-container"
+            key={song.title}
+            onClick={() => handleChangeSong(index)}
+          >
+            <img
+              src={song.cover}
+              alt={`Couverture de l'album de ${song.groupName}`}
+            />
+          </div>
+        ))}
       </div>
       <div className="background-player" aria-hidden="true">
         <img src="/arriereplan-lecteur.svg" alt="" />

@@ -15,14 +15,14 @@ const TrackCard = ({ track, currentTime, isSolo, setSolo, index }) => {
     setMuted(true);
     setVolume(0);
     volumeInputRef.current.style.backgroundSize = "0% 100%";
-    canvasContainerRef.current.style.filter = "grayscale(1)";
+    canvasContainerRef.current.style.filter = "sepia(1)";
   };
   const unmuteTrack = () => {
     track.audio.muted = false;
     setMuted(false);
     setVolume(track.audio.volume);
     volumeInputRef.current.style.backgroundSize = track.audio.volume * 100 + "% 100%";
-    canvasContainerRef.current.style.filter = "grayscale(0)";
+    canvasContainerRef.current.style.filter = "sepia(0)";
   };
 
   useEffect(() => {
@@ -54,7 +54,6 @@ const TrackCard = ({ track, currentTime, isSolo, setSolo, index }) => {
 
   const handleSolo = (e) => {
     e.preventDefault();
-    console.log("handleSolo");
     if (!isSolo || isSolo !== index) {
       setSolo(index);
       setTrackSolo(true);
@@ -90,6 +89,7 @@ const TrackCard = ({ track, currentTime, isSolo, setSolo, index }) => {
             value={volume}
             onChange={handleInputChange}
             ref={volumeInputRef}
+            disabled={disabledButton}
           />
         </div>
         <button

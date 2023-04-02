@@ -7,7 +7,9 @@
 }
 a{color: inherit}
 :root{
+    --primary-light-color: #FFCB47;
     --primary-color: #FFB300;
+    --primary-dark-color: #BF8600;
     --secondary-light-color: #8100D6;
     --secondary-color: #5C0099;
     --secondary-dark-color: #510087;
