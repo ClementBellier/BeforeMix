@@ -39,15 +39,34 @@
     position: relative;
     isolation: isolate;
 }
-.loading-cover{
-    width: 18vw;
-    aspect-ratio: 1;
-    border-radius: 10px;
-    object-fit: cover;
+.covers{
     position: absolute;
+    height: 15vw;
+    display: flex;
+    align-items: center;
     z-index: -1;
     bottom: 3rem;
     right: 3rem;
+    gap:.1rem;
+}
+.covers img{
+    width: 8vw;
+    height: 8vw;
+    border-radius: 10px;
+    object-fit: cover;
+    cursor: pointer;
+    transition: .5s ease-in-out;
+}
+.covers img:hover{
+    scale: 1.2;
+}
+.covers .loading-cover{
+    width: 15vw;    
+    height: 15vw;
+    cursor: auto;
+}
+.covers .loading-cover:hover{
+    scale: unset;
 }
 .loadingPage-text h1{
     text-transform: uppercase;

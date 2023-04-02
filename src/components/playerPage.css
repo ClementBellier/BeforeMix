@@ -118,7 +118,7 @@
     cursor: pointer;
 }
 .loop-activate{
-    --loop-color: var(--secondary-color)
+    --loop-color: var(--primary-color)
 }
 .loop svg{
     width: 45px;

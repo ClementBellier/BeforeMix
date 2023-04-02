@@ -16,13 +16,7 @@ const PlayerPage = ({ song, setSong, tracks, allSongs }) => {
   const audios = tracks.reduce((acc, value) => [...acc, value.audio], []);
   const audioRef = audios[0];
   const duration = audioRef.duration;
-
-  useEffect(() => {
-    if (!loopActivate) {
-      setPlaying(false);
-    }
-  }, [audioRef.ended]);
-
+  
   useEffect(() => {
     let interval = null;
     if (isPlaying) {
@@ -39,7 +33,7 @@ const PlayerPage = ({ song, setSong, tracks, allSongs }) => {
     }
     return () => clearInterval(interval);
   }, [isPlaying]);
-
+  
   useEffect(() => {
     if (isPlaying) {
       audios.map((audio) => audio.pause());
@@ -49,17 +43,29 @@ const PlayerPage = ({ song, setSong, tracks, allSongs }) => {
       audios.map((audio) => (audio.currentTime = chosenTime));
     }
   }, [chosenTime]);
-
+  
+    useEffect(() => {
+      const handleEnded = () => {
+        if (!loopActivate) {
+          setPlaying(false);
+        }
+      }
+      audioRef.addEventListener("ended",handleEnded)
+      return ()=>{
+        audioRef.removeEventListener("ended",handleEnded)
+      }
+    }, []);
+  
   const handleLoop = () => {
     audios.map((audio) => (audio.loop = !audio.loop));
     setLoopActivate((activate) => !activate);
   };
 
-  const handleChangeSong = (index) =>{
+  const handleChangeSong = (index) => {
     audios.map((audio) => audio.pause());
     audios.map((audio) => audio.remove());
-    setSong(music.music[index])
-  }
+    setSong(music.music[index]);
+  };
 
   return (
     <main className="player-page">

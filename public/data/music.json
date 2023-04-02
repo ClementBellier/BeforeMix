@@ -1,6 +1,7 @@
 {
   "music": [
     {
+      "id": 0,
       "title": "Summertime",
       "groupName": "Bols & Knecht",
       "cover": "lala_dp_front-1024x925.jpg",
@@ -20,6 +21,7 @@
       ]
     },
     {
+      "id": 1,
       "title": "Own Way To Boogie",
       "groupName": "Balazs Daniel Boogie Woogie Trio",
       "cover": "cover-ownwaytoboogie.jpg",
@@ -52,6 +54,7 @@
       ]
     },
     {
+      "id": 2,
       "title": "Scarlett",
       "groupName": "Eddie Garrido",
       "cover": "EddieGarrido_Scarlett.jpg",

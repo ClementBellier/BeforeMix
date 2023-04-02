@@ -2,7 +2,13 @@ import Disk from "./disk";
 import "./loadingPage.css";
 import PlayButton from "./playButton";
 
-const LoadingPage = ({ songCover, isLoading, setPassToPlayerPage }) => {
+const LoadingPage = ({
+  allSongs,
+  idSongToPlay,
+  isLoading,
+  setSongToPlay,
+  setPassToPlayerPage,
+}) => {
   return (
     <main className="colored-page">
       <div className="decoration" aria-hidden="true">
@@ -29,9 +35,21 @@ const LoadingPage = ({ songCover, isLoading, setPassToPlayerPage }) => {
           </p>
         </div>
         <div className="loading">
-          <img src={songCover} className="loading-cover" />
-            <span>{isLoading ? "En chargement...":"Chargement terminé"}</span>
-            <PlayButton onClickCallback={setPassToPlayerPage} isPlaying={isLoading} />
+          <div className="covers">
+            {allSongs.map((song, index) => (
+              <img
+                src={song.cover}
+                className={song.id === idSongToPlay ? "loading-cover" : ""}
+                onClick={()=>setSongToPlay(allSongs[song.id])}
+                key={`${song.title}-${index}`}
+              />
+            ))}
+          </div>
+          <span>{isLoading ? "En chargement..." : "Chargement terminé"}</span>
+          <PlayButton
+            onClickCallback={setPassToPlayerPage}
+            isPlaying={isLoading}
+          />
         </div>
       </div>
     </main>

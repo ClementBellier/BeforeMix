@@ -42,7 +42,9 @@ function App() {
     />
   ) : (
     <LoadingPage
-      songCover={songToPlay.cover}
+      allSongs={songs}
+      idSongToPlay={songToPlay.id}
+      setSongToPlay={setSongToPlay}
       isLoading={isLoading}
       setPassToPlayerPage={setPassToPlayerPage}
     />
