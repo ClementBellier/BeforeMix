@@ -26,6 +26,10 @@
 }
 .canvas-container canvas:nth-of-type(2){
     --position: 0%;
+    -webkit-mask-image: linear-gradient(to right, #000 50%,#0000 50%);
+    -webkit-mask-size: 200% 100%;
+    -webkit-mask-position: calc(100% - var(--position));
+    -webkit-mask-repeat: no-repeat;
     mask-image: linear-gradient(to right, #000 50%,#0000 50%);
     mask-size: 200% 100%;
     mask-position: calc(100% - var(--position));

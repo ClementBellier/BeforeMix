@@ -98,7 +98,7 @@ const PlayerPage = ({ song, setSong, tracks, allSongs }) => {
         </div>
       </div>
       <div className="player-controls">
-        <PlayButton onClickCallback={setPlaying} />
+        <PlayButton onClickCallback={setPlaying} isPlaying={isPlaying} />
         <div
           className={loopActivate ? "loop loop-activate" : "loop"}
           onClick={handleLoop}
