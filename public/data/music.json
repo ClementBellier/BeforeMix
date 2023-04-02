@@ -50,6 +50,46 @@
           "audio": "data/BalazsDanielBoogieWoogieTrio_OwnWayToBoogie/Choeurs.mp3"
         }
       ]
+    },
+    {
+      "title": "Scarlett",
+      "groupName": "Eddie Garrido",
+      "cover": "EddieGarrido_Scarlett.jpg",
+      "links": {
+        "site": "https://www.eddie-g.com/",
+        "spotify": "https://open.spotify.com/track/2BspVh1Ms9cy5L5tOaxOjW",
+        "youtube": "https://www.youtube.com/watch?v=R5QFqMoIsjk"
+      },
+      "tracks": [
+        {
+          "name": "Batterie",
+          "audio": "data/EddieGarrido_Scarlett/01_Drums.mp3"
+        },
+        {
+          "name": "Percussions",
+          "audio": "data/EddieGarrido_Scarlett/02_Percussions.mp3"
+        },
+        {
+          "name": "Basse",
+          "audio": "data/EddieGarrido_Scarlett/03_Bass.mp3"
+        },
+        {
+          "name": "Piano",
+          "audio": "data/EddieGarrido_Scarlett/04_Piano.mp3"
+        },
+        {
+          "name": "Electro Piano Pad",
+          "audio": "data/EddieGarrido_Scarlett/05_ElecPianoPad.mp3"
+        },
+        {
+          "name": "Synthétiseur",
+          "audio": "data/EddieGarrido_Scarlett/06_Synth.mp3"
+        },
+        {
+          "name": "Cordes",
+          "audio": "data/EddieGarrido_Scarlett/07_Strings.mp3"
+        }
+      ]
     }
   ]
 }
