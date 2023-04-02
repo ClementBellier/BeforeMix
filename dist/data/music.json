@@ -1,0 +1,55 @@
+{
+  "music": [
+    {
+      "title": "Summertime",
+      "groupName": "Bols & Knecht",
+      "cover": "lala_dp_front-1024x925.jpg",
+      "links": {
+        "site": "bolzundknecht.de/",
+        "youtube": "https://www.youtube.com/@Tobijazzknecht"
+      },
+      "tracks": [
+        {
+          "name": "Saxophone",
+          "audio": "/data/BolzAndKnecht_Summertime/BolzAndKnecht_Summertime_Saxophone.mp3"
+        },
+        {
+          "name": "Guitare",
+          "audio": "/data/BolzAndKnecht_Summertime/BolzAndKnecht_Summertime_Guitare.mp3"
+        }
+      ]
+    },
+    {
+      "title": "Own Way To Boogie",
+      "groupName": "Balazs Daniel Boogie Woogie Trio",
+      "cover": "cover-ownwaytoboogie.jpg",
+      "links": {
+        "site": "https://eng.mrfirehand.com/",
+        "spotify": "https://open.spotify.com/artist/5VjhaKDfKm0z2O3Kzbtzsu",
+        "youtube": "https://www.youtube.com/@mrfirehand"
+      },
+      "tracks": [
+        {
+          "name": "Batterie",
+          "audio": "/data/BalazsDanielBoogieWoogieTrio_OwnWayToBoogie/Batterie.mp3"
+        },
+        {
+          "name": "Basse",
+          "audio": "/data/BalazsDanielBoogieWoogieTrio_OwnWayToBoogie/Basse.mp3"
+        },
+        {
+          "name": "Piano",
+          "audio": "/data/BalazsDanielBoogieWoogieTrio_OwnWayToBoogie/Piano.mp3"
+        },
+        {
+          "name": "Chant",
+          "audio": "/data/BalazsDanielBoogieWoogieTrio_OwnWayToBoogie/Chant.mp3"
+        },
+        {
+          "name": "Choeurs",
+          "audio": "/data/BalazsDanielBoogieWoogieTrio_OwnWayToBoogie/Choeurs.mp3"
+        }
+      ]
+    }
+  ]
+}
