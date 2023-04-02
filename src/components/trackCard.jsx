@@ -80,7 +80,7 @@ const TrackCard = ({ track, pourcentTime, isSolo, setSolo, index }) => {
           Solo
         </button>
         <div className="track-volume">
-          <img src="/speaker.svg" alt="" />
+          <img src={isMuted ? "speaker-off.svg": "speaker.svg"} alt="" onClick={handleMute} />
           <input
             type="range"
             min="0"
@@ -90,6 +90,7 @@ const TrackCard = ({ track, pourcentTime, isSolo, setSolo, index }) => {
             onChange={handleInputChange}
             ref={volumeInputRef}
             disabled={disabledButton}
+            className="volume-input"
           />
         </div>
         <button

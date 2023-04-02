@@ -34,7 +34,7 @@
 }
 .loading{
     font-size: 2rem;
-    color: var(--secondary-color);
+    color: var(--secondary-darker-color);
     align-self: flex-end;
     position: relative;
     isolation: isolate;

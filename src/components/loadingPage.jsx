@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Disk from "./disk";
 import "./loadingPage.css";
 import PlayButton from "./playButton";
@@ -20,9 +19,9 @@ const LoadingPage = ({ songCover, isLoading, setPassToPlayerPage }) => {
           <h1>BeforeMix</h1>
           <h2>Écoutez des morceaux avant leur mix</h2>
           <p>
-            Retrouvez des extraits ou morceaux complets en multipises avant
+            Retrouvez des extraits ou morceaux complets en multipistes avant
             traitement. Chaque piste correspond à une sortie de microphone, il
-            est possible qu'il y est plusieurs pistes pour un seul instrument.
+            est possible qu'il y ait plusieurs pistes pour un seul instrument.
             De même, d'autres instruments peuvent être entendus en plus de celui
             qui est enregistré (par exemple, le son du saxophone peut être capté
             dans la piste de la trompette si les deux instruments sont
@@ -31,11 +30,8 @@ const LoadingPage = ({ songCover, isLoading, setPassToPlayerPage }) => {
         </div>
         <div className="loading">
           <img src={songCover} className="loading-cover" />
-          {isLoading ? (
-            <div>En chargement...</div>
-          ) : (
-            <PlayButton onClickCallback={setPassToPlayerPage} />
-          )}
+            <span>{isLoading ? "En chargement...":"Chargement terminé"}</span>
+            <PlayButton onClickCallback={setPassToPlayerPage} isPlaying={isLoading} />
         </div>
       </div>
     </main>

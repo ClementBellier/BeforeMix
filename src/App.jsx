@@ -14,7 +14,7 @@ function App() {
   const [isLoading, setLoading] = useState(true);
   const [passToPlayerPage, setPassToPlayerPage] = useState(false);
   const songs = music.music;
-  const [songToPlay, setSongToPlay] = useState(songs[0]);
+  const [songToPlay, setSongToPlay] = useState(songs[1]);
   const [tracks, setTracks] = useState([]);
 
   useEffect(() => {

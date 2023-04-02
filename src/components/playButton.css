@@ -5,6 +5,7 @@
     background-color: var(--tertiary-light-color);
     position: relative;
     cursor: pointer;
+    display: inline-block;
 }
 .play-button img{
     position: absolute;

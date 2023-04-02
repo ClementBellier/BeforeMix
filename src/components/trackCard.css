@@ -98,6 +98,7 @@
 }
 .track-volume img{
     width: 26px;
+    cursor: pointer;
 }
 .track-volume input{
     width: 100%;
