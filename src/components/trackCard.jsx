@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import SongWaveForm from "./SongWaveForm";
 import "./trackCard.css";
 
-const TrackCard = ({ track, currentTime, isSolo, setSolo, index }) => {
+const TrackCard = ({ track, pourcentTime, isSolo, setSolo, index }) => {
   const [volume, setVolume] = useState("1");
   const [isMuted, setMuted] = useState(false);
   const [isTrackSolo, setTrackSolo] = useState(false);
@@ -68,7 +68,7 @@ const TrackCard = ({ track, currentTime, isSolo, setSolo, index }) => {
     <div className="track-card">
       <SongWaveForm
         songArrayBuffer={track.arrayBuffer}
-        currentTime={currentTime}
+        pourcentTime={pourcentTime}
         canvasContainerRef={canvasContainerRef}
       />
       <div className="track-buttons">

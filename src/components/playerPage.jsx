@@ -87,7 +87,7 @@ const PlayerPage = ({ song, setSong, tracks, allSongs }) => {
             {tracks.map((track, index) => (
               <TrackCard
                 track={track}
-                currentTime={pourcentTime}
+                pourcentTime={pourcentTime}
                 isSolo={isSolo}
                 setSolo={setSolo}
                 index={index + 1} //Eviter un index 0 pour pouvoir rentrer dans le useEffect

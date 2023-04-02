@@ -2,8 +2,7 @@ export const drawWaveForm = (
     audioBuffer,
     canvas,
     context,
-    color,
-    currentTime
+    color
   ) => {
     const canvasWidth = Math.floor(canvas.offsetWidth);
     const canvasHeight = Math.floor(canvas.offsetHeight);
@@ -80,10 +79,9 @@ export const drawWaveForm = (
     // Draw in the vertical middle of the canvas and scale all values (-1 to 1) to fit the canvas height
     context.translate(0, canvasHeight / 2);
     context.scale(1, canvasHeight / 2);
-    const lineCurrentTime = (currentTime * drawData.length) / 100;
     // Draw all our lines
     context.beginPath();
-    for (let i = 0; i < lineCurrentTime; i++) {
+    for (let i = 0; i < drawData.length; i++) {
       const x = i * lineGap;
       const y = drawData[i];
       context.moveTo(x, y);

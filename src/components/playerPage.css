@@ -43,6 +43,9 @@
 }
 .song__infos-disk img{
     width: 200px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
 }
 .song__infos h1{
     font-size: calc(1.3rem + 1vw);
@@ -157,7 +160,8 @@
 }
 .cover-container{
     height: 100%;
-    aspect-ratio: 1;
+    aspect-ratio: 1;    
+    border-radius: 5px;
     overflow: hidden;
 }
 .other-songs img{
