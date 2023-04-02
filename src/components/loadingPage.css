@@ -36,6 +36,17 @@
     font-size: 2rem;
     color: var(--secondary-color);
     align-self: flex-end;
+    position: relative;
+    isolation: isolate;
+}
+.loading-cover{
+    width: 18vw;
+    aspect-ratio: 1;
+    object-fit: cover;
+    position: absolute;
+    z-index: -1;
+    bottom: 3rem;
+    right: 3rem;
 }
 .loadingPage-text h1{
     text-transform: uppercase;

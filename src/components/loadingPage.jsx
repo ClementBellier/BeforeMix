@@ -3,7 +3,7 @@ import Disk from "./disk";
 import "./loadingPage.css";
 import PlayButton from "./playButton";
 
-const LoadingPage = ({ isLoading, setPassToPlayerPage }) => {
+const LoadingPage = ({ songCover, isLoading, setPassToPlayerPage }) => {
   return (
     <main className="colored-page">
       <div className="decoration" aria-hidden="true">
@@ -29,11 +29,14 @@ const LoadingPage = ({ isLoading, setPassToPlayerPage }) => {
             enregistrés côte à côte)
           </p>
         </div>
-        {isLoading ? (
-          <div className="loading">Chargement</div>
-        ) : (
-          <PlayButton onClickCallback={setPassToPlayerPage} />
-        )}
+        <div className="loading">
+          <img src={songCover} className="loading-cover" />
+          {isLoading ? (
+            <div>En chargement...</div>
+          ) : (
+            <PlayButton onClickCallback={setPassToPlayerPage} />
+          )}
+        </div>
       </div>
     </main>
   );
